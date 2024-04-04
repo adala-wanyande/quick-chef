@@ -1,10 +1,8 @@
 import * as React from "react";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
-import ContactUsForm from "./components/ContactUsForm";
+import ButtonComponent from "./components/ButtonComponent";
 
 export default function Home() {
   return (
-    <ContactUsForm></ContactUsForm>
+    <ButtonComponent color="primary" variant="outlined" text="Adala Rocks" link="#adala"/>
   );
 }
