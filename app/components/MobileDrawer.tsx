@@ -1,5 +1,6 @@
 import React from "react";
-import { Drawer, Box } from "@mui/material";
+import { Drawer, Box, Divider } from "@mui/material";
+import ButtonComponent from "./ButtonComponent";
 
 const MobileDrawer: React.FC<MobileDrawerProps> = ({
   open,
@@ -17,6 +18,19 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({
         }}
       >
         {children}
+        <Divider/>
+        <ButtonComponent
+              color="primary"
+              variant="contained"
+              text="Get Started"
+              link="/sign-up"
+            />
+            <ButtonComponent
+              color="primary"
+              variant="contained"
+              text="Login"
+              link="/sign-in"
+            />
       </Box>
     </Drawer>
   );
