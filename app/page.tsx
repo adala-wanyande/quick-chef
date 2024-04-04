@@ -1,8 +1,8 @@
 import * as React from "react";
-import ButtonComponent from "./components/ButtonComponent";
+import NavigationBar from "./components/NavigationBar";
 
 export default function Home() {
   return (
-    <ButtonComponent color="primary" variant="outlined" text="Adala Rocks" link="#adala"/>
+    <NavigationBar/>
   );
 }

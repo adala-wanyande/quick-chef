@@ -9,3 +9,9 @@ type ButtonProps = {
     text: string,
     link: string,
 }
+
+type MobileDrawerProps = {
+    children: React.ReactNode,
+    open: boolean,
+    toggleDrawer: (boolean) => void,
+}
