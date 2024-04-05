@@ -1,27 +1,33 @@
 'use client';
-import { Roboto } from 'next/font/google';
 import { createTheme } from '@mui/material/styles';
-import { green, purple } from '@mui/material/colors';
-
-const roboto = Roboto({
-  weight: ['300', '400', '500', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-});
-
 
 const theme = createTheme({
   typography: {
-    fontFamily: roboto.style.fontFamily,
+    fontFamily: '"Jost", sans-serif',
+    h1: {
+      fontFamily: '"Lexend", sans-serif',
+    },
+    h2: {
+      fontFamily: '"Lexend", sans-serif',
+    },
+    h3: {
+      fontFamily: '"Lexend", sans-serif',
+    },
+    // Continue for h4, h5, h6 as needed
   },
   palette: {
     primary: {
-      main: purple[500],
+      main: '#000', 
     },
     secondary: {
-      main: green[500],
+      main: '#276EF1', 
     },
+    // Will add other specifications as needed
   },
 });
 
 export default theme;
+
+
+
+
