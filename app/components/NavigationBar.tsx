@@ -61,35 +61,27 @@ const NavigationBar = () => {
               flexGrow: 1,
               display: "flex",
               alignItems: "center",
-              ml: "-18px",
               px: 0,
             }}
           >
             <CompanyLogo />
-            <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <Box width={40}></Box>
               <NavigationItem
                 section="Home"
                 scrollToSection={() => scrollToSection("Home")}
               />
-            </Box>
-            <Box sx={{ display: { xs: "none", md: "flex" } }}>
               <NavigationItem
                 section="About"
                 scrollToSection={() => scrollToSection("About")}
               />
-            </Box>
-            <Box sx={{ display: { xs: "none", md: "flex" } }}>
               <NavigationItem
                 section="Our Chefs"
                 scrollToSection={() => scrollToSection("Our Chefs")}
               />
-            </Box>
-            <Box sx={{ display: { xs: "none", md: "flex" } }}>
               <NavigationItem
                 section="Cuisine"
                 scrollToSection={() => scrollToSection("Cuisine")}
               />
-            </Box>
           </Box>
           <Box
             sx={{
@@ -105,7 +97,7 @@ const NavigationBar = () => {
               link="/sign-up"
             />
             <ButtonComponent
-              color="primary"
+              color="secondary"
               variant="contained"
               text="Login"
               link="/sign-in"
