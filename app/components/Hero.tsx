@@ -43,7 +43,7 @@ export default function Hero() {
               variant="h1"
               sx={{
                 fontSize: "clamp(3rem, 10vw, 4rem)",
-                color: "primary.main",
+                color: "secondary.main",
               }}
             >
               Art, 
@@ -53,7 +53,7 @@ export default function Hero() {
               variant="h1"
               sx={{
                 fontSize: "clamp(3rem, 10vw, 4rem)",
-                color: "primary.main",
+                color: "secondary.main",
               }}
             >Passion</Typography>
           </Typography>
