@@ -1,20 +1,29 @@
 import React from "react";
-
-const logoStyle = {
-    width: '140px',
-    height: 'auto',
-    cursor: 'pointer',
-  };
+import Image from "next/image";
+import Link from "next/link";
 
 const CompanyLogo = () => {
+  const logoWidth = 140;
+  const logoHeight = 38; 
+
   return (
-    <img
-      src={
-        "https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/61f12e6faf73568658154dae_SitemarkDefault.svg"
-      }
-      style={logoStyle}
-      alt="Quick Chef Logo"
-    />
+    <div
+      style={{
+        width: logoWidth,
+        height: logoHeight,
+        position: "relative",
+        margin: 2,
+      }}
+    >
+      <Link href="/">
+        <Image
+          src="/logo/quick-chef-logo.png"
+          alt="Quick Chef Logo"
+          width={logoWidth}
+          height={logoHeight}
+        />
+      </Link>
+    </div>
   );
 };
 
