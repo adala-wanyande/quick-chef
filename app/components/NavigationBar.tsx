@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import AppBar from "@mui/material/AppBar";
-import { Box, Container, Toolbar, Button } from "@mui/material";
+import { Box, Container, Toolbar, Button, Divider } from "@mui/material";
 import CompanyLogo from "./CompanyLogo";
 import NavigationItem from "./NavigationItem";
 import ButtonComponent from "./ButtonComponent";
@@ -66,22 +66,25 @@ const NavigationBar = () => {
           >
             <CompanyLogo />
             <Box width={40}></Box>
-              <NavigationItem
-                section="Home"
-                scrollToSection={() => scrollToSection("Home")}
-              />
-              <NavigationItem
-                section="About"
-                scrollToSection={() => scrollToSection("About")}
-              />
-              <NavigationItem
-                section="Our Chefs"
-                scrollToSection={() => scrollToSection("Our Chefs")}
-              />
-              <NavigationItem
-                section="Cuisine"
-                scrollToSection={() => scrollToSection("Cuisine")}
-              />
+            <Divider orientation="vertical" flexItem/>
+            <NavigationItem
+              section="Book"
+              scrollToSection={() => scrollToSection("Book")}
+            />
+            <Divider orientation="vertical" flexItem/>
+            <NavigationItem
+              section="Join"
+              scrollToSection={() => scrollToSection("Join")}
+            />
+            <Divider orientation="vertical" flexItem/>
+            <NavigationItem
+              section="About"
+              scrollToSection={() => scrollToSection("About")}
+            />
+            {/* <NavigationItem
+              section="How Quick Chef Works"
+              scrollToSection={() => scrollToSection("Cuisine")}
+            /> */}
           </Box>
           <Box
             sx={{
@@ -93,14 +96,14 @@ const NavigationBar = () => {
             <ButtonComponent
               color="primary"
               variant="text"
-              text="Get Started"
-              link="/sign-up"
+              text="Log in"
+              link="/login"
             />
             <ButtonComponent
               color="secondary"
               variant="contained"
-              text="Login"
-              link="/sign-in"
+              text="Sign up"
+              link="/sign-up"
             />
           </Box>
           <Box sx={{ display: { sm: "", md: "none" } }}>
