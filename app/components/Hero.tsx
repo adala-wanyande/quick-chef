@@ -5,6 +5,8 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import Image from "next/image";
+import { ArrowForward } from "@mui/icons-material";
 
 export default function Hero() {
   return (
@@ -20,7 +22,7 @@ export default function Hero() {
       <Container
         sx={{
           display: "flex",
-          flexDirection: "column",
+          flexDirection: "row",
           alignItems: "center",
           pt: { xs: 14, sm: 20 },
           pb: { xs: 8, sm: 12 },
@@ -32,54 +34,65 @@ export default function Hero() {
             sx={{
               display: "flex",
               flexDirection: { xs: "column", md: "column" },
-              alignSelf: "center",
-              textAlign: "center",
-              fontSize: "clamp(3.5rem, 10vw, 4rem)",
+              alignSelf: "left",
+              textAlign: "left",
+              width: "100%",
+              fontSize: "clamp(3rem, 8vw, 3rem)",
             }}
           >
-            Savour the
+            Chef-on-Demand,
             <Typography
               component="span"
               variant="h1"
               sx={{
-                fontSize: "clamp(3rem, 10vw, 4rem)",
+                fontSize: "clamp(3rem, 8vw, 3rem)",
                 color: "secondary.main",
               }}
             >
-              Art, 
+              Gourmet Meals
             </Typography>
-            Taste the <Typography
+            Crafted in
+            <Typography
               component="span"
               variant="h1"
               sx={{
-                fontSize: "clamp(3rem, 10vw, 4rem)",
+                fontSize: "clamp(3rem, 8vw, 3rem)",
                 color: "secondary.main",
               }}
-            >Passion</Typography>
+            >
+              Your Kitchen
+            </Typography>
           </Typography>
           <Typography
-            textAlign="center"
+            textAlign="left"
             color="text.secondary"
-            sx={{ alignSelf: "center", width: { sm: "100%", md: "80%" } }}
+            sx={{ alignSelf: "left", width: { sm: "100%", md: "80%" } }}
           >
-            Dive into a world where flavors meet craftmanship. Explore exclusive
-            cuisines and connect with our culinary artisans
+            Connect instantly with culinary experts, explore unique cuisines, and book a
+            personalized cooking experience. Download now to transform your
+            meals into culinary adventures.
           </Typography>
           <Stack
             direction={{ xs: "column", sm: "row" }}
-            alignSelf="center"
+            alignSelf="left"
             spacing={1}
             useFlexGap
             sx={{ pt: 2, width: { xs: "100%", sm: "auto" } }}
           >
-            <Button variant="contained" color="primary">
-              Discover Flavours
-            </Button>
-            <Button variant="outlined" color="primary">
-              Meet Our Chefs
+            <Button variant="contained" color="primary" endIcon={<ArrowForward />}>
+              Book a Chef
             </Button>
           </Stack>
         </Stack>
+        <Box>
+          <Image
+            alt="Landing page image"
+            src="/images/hero.png"
+            width="500"
+            height="500"
+            style={{ borderRadius: "40px" }}
+          />
+        </Box>
       </Container>
     </Box>
   );
