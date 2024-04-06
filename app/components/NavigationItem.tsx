@@ -10,7 +10,7 @@ const NavigationItem: React.FC<NavigationItemProps> = ({
     <Box sx={{ display: { xs: "none", md: "flex" } }}>
       <MenuItem
         onClick={() => scrollToSection(section)}
-        sx={{ py: "6px", px: "12px" }}
+        sx={{ py: "6px", px: "16px", mx: "8px" }}
       >
         <Typography variant="body2" color="text.primary">
           {section}
