@@ -8,7 +8,7 @@ const ButtonComponent: React.FC<ButtonProps> = ({ color, variant, text, link }) 
       variant={variant}
       href={link}
       target="_blank"
-      sx={{ width: "150px" }}
+      sx={{ width: "120px", borderRadius: 8 }}
     >
       {text}
     </Button>
