@@ -1,6 +1,6 @@
 import React from "react";
 import { Drawer, Box, Divider } from "@mui/material";
-import ButtonComponent from "./ButtonComponent";
+import ButtonComponent from "../ButtonComponent/ButtonComponent";
 
 const MobileDrawer: React.FC<MobileDrawerProps> = ({
   open,

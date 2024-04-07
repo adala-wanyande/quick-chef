@@ -2,12 +2,12 @@
 import React from "react";
 import AppBar from "@mui/material/AppBar";
 import { Box, Container, Toolbar, Button, Divider } from "@mui/material";
-import CompanyLogo from "./CompanyLogo";
-import NavigationItem from "./NavigationItem";
-import ButtonComponent from "./ButtonComponent";
-import MobileDrawer from "./MobileDrawer";
+import CompanyLogo from "../CompanyLogo/CompanyLogo";
+import NavigationItem from "../NavigationItem/NavigationItem";
+import ButtonComponent from "../ButtonComponent/ButtonComponent";
+import MobileDrawer from "../MobileDrawer/MobileDrawer";
 import MenuIcon from "@mui/icons-material/Menu";
-import MobileNavigationItem from "./MobileNavigationItem";
+import MobileNavigationItem from "../MobileNavigationItem/MobileNavigationItem";
 
 const NavigationBar = () => {
   const [open, setOpen] = React.useState(false);
