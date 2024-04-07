@@ -1,5 +1,5 @@
-'use client';
-import { createTheme } from '@mui/material/styles';
+"use client";
+import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   typography: {
@@ -13,21 +13,21 @@ const theme = createTheme({
     h3: {
       fontFamily: '"Lexend", sans-serif',
     },
+    body1: {
+      textDecoration: "none",
+      mb: 2,
+    },
     // Continue for h4, h5, h6 as needed
   },
   palette: {
     primary: {
-      main: '#000', 
+      main: "#000",
     },
     secondary: {
-      main: '#276EF1', 
+      main: "#276EF1",
     },
     // Will add other specifications as needed
   },
 });
 
 export default theme;
-
-
-
-
