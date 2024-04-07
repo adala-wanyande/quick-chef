@@ -1,0 +1,28 @@
+/* styles.module.css */
+
+.customLink {
+    position: relative;
+    text-decoration: none;
+    margin-left: 8px;
+    font-family: "Jost", 'sans-serif';
+    font-size: 16px;
+    color: #276EF1;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    padding: 2 10px;
+}
+
+.customLink:after {
+    content: "";
+    position: absolute;
+    background-color: #276EF1;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -2px;
+    transition: width 0.3s ease-in-out;
+}
+
+.customLink:hover:after {
+    width: 100%;
+}
