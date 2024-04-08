@@ -67,25 +67,21 @@ const NavigationBar = () => {
           >
             <CompanyLogo />
             <Box width={40}></Box>
-            <Divider orientation="vertical" flexItem/>
+            <Divider orientation="vertical" flexItem />
             <NavigationItem
               section="Book"
               scrollToSection={() => scrollToSection("Book")}
             />
-            <Divider orientation="vertical" flexItem/>
+            <Divider orientation="vertical" flexItem />
             <NavigationItem
               section="Join"
               scrollToSection={() => scrollToSection("Join")}
             />
-            <Divider orientation="vertical" flexItem/>
+            <Divider orientation="vertical" flexItem />
             <NavigationItem
               section="About"
               scrollToSection={() => scrollToSection("About")}
             />
-            {/* <NavigationItem
-              section="How Quick Chef Works"
-              scrollToSection={() => scrollToSection("Cuisine")}
-            /> */}
           </Box>
           <Box
             sx={{
@@ -119,20 +115,16 @@ const NavigationBar = () => {
             </Button>
             <MobileDrawer open={open} toggleDrawer={toggleDrawer}>
               <MobileNavigationItem
-                section="Home"
+                section="Book"
                 scrollToSection={() => scrollToSection("Home")}
               />
               <MobileNavigationItem
-                section="About"
+                section="Join"
                 scrollToSection={() => scrollToSection("About")}
               />
               <MobileNavigationItem
-                section="Our Chefs"
+                section="About"
                 scrollToSection={() => scrollToSection("Our Chefs")}
-              />
-              <MobileNavigationItem
-                section="Cuisine"
-                scrollToSection={() => scrollToSection("Cuisine")}
               />
             </MobileDrawer>
           </Box>

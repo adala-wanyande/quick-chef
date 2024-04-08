@@ -17,7 +17,7 @@ const NavigationItem: React.FC<NavigationItemProps> = ({
 
   if (section == "About") {
     return (
-      <div>
+      <Box sx={{ display: { xs: "none", md: "flex" } }}>
         <Button
           aria-controls={open ? "basic-menu" : undefined}
           aria-haspopup="true"
@@ -44,7 +44,7 @@ const NavigationItem: React.FC<NavigationItemProps> = ({
           <Divider />
           <MenuItem onClick={handleClose}>About Us</MenuItem>
         </Menu>
-      </div>
+      </Box>
     );
   } else {
     return (

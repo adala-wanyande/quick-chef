@@ -8,29 +8,37 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({
   children,
 }) => {
   return (
-    <Drawer anchor="right" open={open} onClose={() => toggleDrawer(false)}>
+    <Drawer anchor="right" open={open} onClose={() => toggleDrawer(false)}  ModalProps={{ // Apply zIndex through ModalProps
+      sx: {
+        zIndex: (theme) => theme.zIndex.drawer + 1 // or use a specific value like 2
+      }
+    }}>
       <Box
         sx={{
-          minWidth: "60dvw",
+          minWidth: "400px",
           p: 2,
           backgroundColor: "background.paper",
           flexGrow: 1,
+          marginBottom: 2,
         }}
       >
         {children}
         <Divider/>
+        <Box gap={2} sx={{display: "flex", flexDirection: "column", py: 2}}>
         <ButtonComponent
               color="primary"
               variant="contained"
-              text="Get Started"
-              link="/sign-up"
+              text="Log In"
+              link="/login"
             />
             <ButtonComponent
               color="primary"
               variant="contained"
-              text="Login"
-              link="/sign-in"
+              text="Sign Up"
+              link="/sign-up"
             />
+        </Box>
+        
       </Box>
     </Drawer>
   );

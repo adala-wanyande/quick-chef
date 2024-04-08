@@ -18,6 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Jost:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       </head>
       <body>
         <AppRouterCacheProvider>
