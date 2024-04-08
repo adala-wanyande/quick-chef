@@ -17,6 +17,10 @@ const theme = createTheme({
       textDecoration: "none",
       mb: 2,
     },
+    button: {
+      textDecoration: "none",
+      textTransform: "capitalize",
+    }
     // Continue for h4, h5, h6 as needed
   },
   palette: {
