@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 const MobileCompanyLogo = () => {
-  const logoWidth = 140;
-  const logoHeight = 38; 
+  const logoWidth = 38;
+  const logoHeight = 38;
 
   return (
     <div

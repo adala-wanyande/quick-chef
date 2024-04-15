@@ -9,21 +9,16 @@ import MobileCompanyLogo from "../MobileCompanyLogo/MobileCompanyLogo";
 
 const MobileNavigationBar = () => {
   return (
-    <Box sx={{ display: { xs: "block", sm: "none" }, flexGrow: 1 }}>
+    <Box sx={{ display: { xs: "block", md: "none" } }}>
       <AppBar position="static">
-        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Toolbar sx={{ justifyContent: "space-between" }}>
           <MobileCompanyLogo />
           <Box>
             <Button color="inherit">Login</Button>
             <Button variant="contained" color="secondary" sx={{ mr: 2 }}>
               Sign up
             </Button>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-            >
+            <IconButton color="inherit" aria-label="menu">
               <MenuIcon />
             </IconButton>
           </Box>

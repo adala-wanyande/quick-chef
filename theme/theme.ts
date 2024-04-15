@@ -2,6 +2,15 @@
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 640,   // Custom breakpoint for small devices
+      md: 800,  // Custom breakpoint for medium devices
+      lg: 1280,  // Custom breakpoint for large devices
+      xl: 1920   // Custom breakpoint for extra large devices
+    }
+  },
   typography: {
     fontFamily: '"Jost", sans-serif',
     h1: {
