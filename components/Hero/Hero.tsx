@@ -26,7 +26,7 @@ export default function Hero() {
           width: "100%",
           flexDirection: { xs: "column", sm: "column", md: "row" },
           alignItems: "center",
-          marginRight: 4,
+          paddingRight: 4,
           pt: { xs: 14, sm: 20 },
           pb: { xs: 8, sm: 12 },
         }}
