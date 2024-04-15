@@ -22,6 +22,7 @@ export default function Hero() {
       <Container
         sx={{
           display: "flex",
+          width: "100%",
           flexDirection: "row",
           alignItems: "center",
           pt: { xs: 14, sm: 20 },
