@@ -37,6 +37,7 @@ const NavigationBar = () => {
         bgcolor: "transparent",
         backgroundImage: "none",
         mt: 2,
+        display: { xs: "none", sm: "block" },
       }}
     >
       <Container maxWidth="lg">
