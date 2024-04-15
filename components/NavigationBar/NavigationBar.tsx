@@ -6,21 +6,6 @@ import NavigationItem from "../NavigationItem/NavigationItem";
 import ButtonComponent from "../ButtonComponent/ButtonComponent";
 
 const NavigationBar = () => {
-  const [open, setOpen] = React.useState(false);
-
-  const scrollToSection = (sectionId: string) => {
-    const sectionElement = document.getElementById(sectionId);
-    const offset = 128;
-    if (sectionElement) {
-      const targetScroll = sectionElement.offsetTop - offset;
-      window.scrollTo({
-        top: targetScroll,
-        behavior: "smooth",
-      });
-      setOpen(false);
-    }
-  };
-
   return (
     <AppBar
       position="fixed"
@@ -56,20 +41,11 @@ const NavigationBar = () => {
           >
             <CompanyLogo />
             <Divider orientation="vertical" flexItem />
-            <NavigationItem
-              section="Book"
-              scrollToSection={() => scrollToSection("Book")}
-            />
+            <NavigationItem section="Book" scrollToSection={() => {}} />
             <Divider orientation="vertical" flexItem />
-            <NavigationItem
-              section="Join"
-              scrollToSection={() => scrollToSection("Join")}
-            />
+            <NavigationItem section="Join" scrollToSection={() => {}} />
             <Divider orientation="vertical" flexItem />
-            <NavigationItem
-              section="About"
-              scrollToSection={() => scrollToSection("About")}
-            />
+            <NavigationItem section="About" scrollToSection={() => {}} />
           </Box>
           <Box sx={{ gap: 0.5, alignItems: "center" }}>
             <ButtonComponent
