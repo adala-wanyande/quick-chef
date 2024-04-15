@@ -8,6 +8,7 @@ import DownloadApp from "@/components/DownloadApp/DownloadApp";
 import { Divider } from "@mui/material";
 import MobileHero from "@/components/MobileHero/MobileHero";
 import MobileProblemSolution from "@/components/MobileProblemSolution/MobileProblemSolution";
+import MobileDownloadApp from "@/components/MobileDownloadApp/MobileDownloadApp";
 
 export default function Home() {
   return (
@@ -19,11 +20,10 @@ export default function Home() {
       <ProblemSolution />
       <MobileProblemSolution />
       <Divider />
-      {/* <ProblemSolution />
-      <Divider />
       <DownloadApp />
+      <MobileDownloadApp />
       <Divider />
-      <Footer /> */}
+      <Footer />
     </>
   );
 }

@@ -7,46 +7,45 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
 
-const DownloadApp = () => {
+export default function MobileDownloadApp() {
   return (
     <Box
       id="hero"
       sx={{
         width: "100%",
-        display: { xs: "none", md: "block" },
+        backgroundImage: "linear-gradient(180deg, #CEE5FD, #FFF)",
+        backgroundSize: "100% 20%",
+        backgroundRepeat: "no-repeat",
+        display: { xs: "block", md: "none" },
       }}
     >
       <Container
         sx={{
           display: "flex",
-          flexDirection: "row",
-          alignItems: "top",
-          pt: { xs: 14, sm: 20 },
-          pb: { xs: 8, sm: 12 },
+          flexDirection: "column",
+          alignItems: "left",
+          py: 5,
+          px: 4,
         }}
       >
-        <Stack
-          spacing={2}
-          useFlexGap
-          sx={{ width: { xs: "100%", sm: "70%" }, paddingX: 8 }}
-        >
+        <Stack spacing={2} useFlexGap sx={{ width: { xs: "100%" } }}>
           <Typography
-            variant="h2"
+            variant="h1"
             sx={{
               display: "flex",
-              flexDirection: { xs: "column", md: "column" },
-              alignSelf: "left",
+              flexDirection: "column",
               textAlign: "left",
-              width: "100%",
-              fontSize: "clamp(3rem, 8vw, 3rem)",
+              fontSize: "36px",
             }}
           >
-            It's easier in the apps
+            It's easier within the apps
           </Typography>
           <Typography
             textAlign="left"
             color="text.secondary"
-            sx={{ alignSelf: "left", width: { sm: "100%", md: "80%" } }}
+            sx={{
+              fontSize: "16px",
+            }}
           >
             With Quick Chef, gourmet dining is just a tap away. Simply open the
             app, choose your menu, and a local culinary expert will bring the
@@ -57,7 +56,7 @@ const DownloadApp = () => {
             alignSelf="left"
             spacing={1}
             useFlexGap
-            sx={{ pt: 2, width: { xs: "100%", sm: "auto" } }}
+            sx={{ pt: 2, width: { xs: "100%", sm: "auto" }, pb: 4 }}
           >
             <Button
               sx={{ width: "200px", marginBottom: 1 }}
@@ -75,18 +74,24 @@ const DownloadApp = () => {
             </Button>
           </Stack>
         </Stack>
-        <Box>
+        {/* <Box
+          sx={{
+            width: "100%", // responsive width
+            height: 0, // responsive height based on width
+            paddingTop: "80%", // aspect ratio
+            position: "relative",
+            borderRadius: "10px",
+            overflow: "hidden",
+          }}
+        >
           <Image
             alt="Landing page image"
             src="/images/download-app.png"
-            width="400"
-            height="400"
-            style={{ borderRadius: "40px" }}
+            layout="fill"
+            objectFit="cover"
           />
-        </Box>
+        </Box> */}
       </Container>
     </Box>
   );
-};
-
-export default DownloadApp;
+}
