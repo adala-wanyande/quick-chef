@@ -7,6 +7,7 @@ import Footer from "@/components/Footer/Footer";
 import DownloadApp from "@/components/DownloadApp/DownloadApp";
 import { Divider } from "@mui/material";
 import MobileHero from "@/components/MobileHero/MobileHero";
+import MobileProblemSolution from "@/components/MobileProblemSolution/MobileProblemSolution";
 
 export default function Home() {
   return (
@@ -15,6 +16,9 @@ export default function Home() {
       <MobileNavigationBar />
       <Hero />
       <MobileHero />
+      <ProblemSolution />
+      <MobileProblemSolution />
+      <Divider />
       {/* <ProblemSolution />
       <Divider />
       <DownloadApp />

@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import { ArrowForward } from "@mui/icons-material";
 import Link from "next/link";
-import styles from './problem-solution.module.css';
+import styles from "./problem-solution.module.css";
 
 const ProblemSolution = () => {
   return (
@@ -19,6 +19,7 @@ const ProblemSolution = () => {
         backgroundImage: "linear-gradient(180deg, #CEE5FD, #FFF)",
         backgroundSize: "100% 20%",
         backgroundRepeat: "no-repeat",
+        display: { xs: "none", md: "block" },
       }}
     >
       <Container
@@ -96,7 +97,7 @@ const ProblemSolution = () => {
             </Button>
             <Box>
               <Link href="/login" legacyBehavior>
-                <a className={styles.customLink} >
+                <a className={styles.customLink}>
                   Already have an account? Sign In
                 </a>
               </Link>

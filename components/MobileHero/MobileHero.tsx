@@ -25,8 +25,8 @@ export default function MobileHero() {
           display: "flex",
           flexDirection: "column",
           alignItems: "left",
-          py: "40px",
-          px: "24px",
+          py: 5,
+          px: 4,
         }}
       >
         <Stack spacing={2} useFlexGap sx={{ width: { xs: "100%" } }}>
