@@ -38,7 +38,7 @@ export default function MobileDownloadApp() {
               fontSize: "36px",
             }}
           >
-            It's easier within the apps
+            It&apos;s easier within the apps
           </Typography>
           <Typography
             textAlign="left"

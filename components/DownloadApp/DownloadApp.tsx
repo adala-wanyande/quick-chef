@@ -41,7 +41,7 @@ const DownloadApp = () => {
               fontSize: "clamp(3rem, 8vw, 3rem)",
             }}
           >
-            It's easier in the apps
+            It&apos;s easier in the apps
           </Typography>
           <Typography
             textAlign="left"
