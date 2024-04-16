@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import MobileCompanyLogo from "../MobileCompanyLogo/MobileCompanyLogo";
+import ButtonComponent from "../ButtonComponent/ButtonComponent";
 
 const MobileNavigationBar = () => {
   return (
@@ -14,12 +15,10 @@ const MobileNavigationBar = () => {
         <Toolbar sx={{ justifyContent: "space-between" }}>
           <MobileCompanyLogo />
           <Box>
-            <Button color="inherit">Login</Button>
-            <Button variant="contained" color="secondary" sx={{ mr: 2 }}>
-              Sign up
-            </Button>
+            <ButtonComponent color="inherit" link="/login" variant="text" text="Login"></ButtonComponent>
+            <ButtonComponent variant="contained" color="secondary" link="/signup" text="Sign up"></ButtonComponent>
             <IconButton color="inherit" aria-label="menu">
-              <MenuIcon />
+              <MenuIcon sx={{ml: 2}}/>
             </IconButton>
           </Box>
         </Toolbar>

@@ -13,6 +13,7 @@ const CompanyLogo = () => {
         height: logoHeight,
         position: "relative",
         margin: 2,
+        marginRight: "20px"
       }}
     >
       <Link href="/">
