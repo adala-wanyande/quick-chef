@@ -13,8 +13,8 @@ import MobileDownloadApp from "@/components/MobileDownloadApp/MobileDownloadApp"
 export default function Home() {
   return (
     <>
-      <NavigationBar />
-      <MobileNavigationBar />
+      <NavigationBar isSignInPage={false} isSignUpPage={false}/>
+      <MobileNavigationBar isSignInPage={false} isSignUpPage={false}/>
       <Hero />
       <MobileHero />
       <ProblemSolution />

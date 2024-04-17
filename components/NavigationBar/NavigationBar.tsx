@@ -5,7 +5,40 @@ import CompanyLogo from "../CompanyLogo/CompanyLogo";
 import NavigationItem from "../NavigationItem/NavigationItem";
 import ButtonComponent from "../ButtonComponent/ButtonComponent";
 
-const NavigationBar = () => {
+const NavigationBar = ({
+  isSignInPage,
+  isSignUpPage,
+}: {
+  isSignInPage: boolean;
+  isSignUpPage: boolean;
+}) => {
+  const renderSignInButton = () => {
+    if (!isSignInPage) {
+      return (
+        <ButtonComponent
+          color="primary"
+          variant="text"
+          text="Log in"
+          link="/login"
+        />
+      );
+    }
+    return null;
+  };
+
+  const renderSignUpButton = () => {
+    if (!isSignUpPage) {
+      return (
+        <ButtonComponent
+          color="secondary"
+          variant="contained"
+          text="Sign up"
+          link="/sign-up"
+        />
+      );
+    }
+    return null;
+  };
   return (
     <AppBar
       position="fixed"
@@ -48,18 +81,8 @@ const NavigationBar = () => {
             <NavigationItem section="About" scrollToSection={() => {}} />
           </Box>
           <Box sx={{ gap: 0.5, alignItems: "center" }}>
-            <ButtonComponent
-              color="primary"
-              variant="text"
-              text="Log in"
-              link="/login"
-            />
-            <ButtonComponent
-              color="secondary"
-              variant="contained"
-              text="Sign up"
-              link="/sign-up"
-            />
+            {renderSignInButton()}
+            {renderSignUpButton()}
           </Box>
         </Toolbar>
       </Container>

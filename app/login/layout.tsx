@@ -1,16 +1,19 @@
-import React from 'react'
+import MobileNavigationBar from "@/components/MobileNavigationBar/MobileNavigationBar";
+import NavigationBar from "@/components/NavigationBar/NavigationBar";
+import React from "react";
 
 const LoginLayout = ({
-    children,
-  }: Readonly<{
-    children: React.ReactNode;
-  }>) => {
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) => {
   return (
     <>
-        <div>LoginLayout</div>
-        {children}
+      <NavigationBar isSignInPage={true} isSignUpPage={false} />
+      <MobileNavigationBar isSignInPage={true} isSignUpPage={false} />
+      {children}
     </>
-  )
-}
+  );
+};
 
-export default LoginLayout
+export default LoginLayout;
