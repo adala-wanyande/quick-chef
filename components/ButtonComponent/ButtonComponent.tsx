@@ -12,7 +12,6 @@ const ButtonComponent: React.FC<ButtonProps> = ({
       color={color}
       variant={variant}
       href={link}
-      target="_blank"
       sx={{ borderRadius: { md: 8 } }}
     >
       {text}
