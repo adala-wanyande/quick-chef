@@ -1,8 +1,9 @@
 import React from "react";
 import Email from "./components/Email";
+import VerifyEmail from "./components/VerifyEmail";
 
 const SignUp = () => {
-  return <Email />;
+  return <VerifyEmail />;
 };
 
 export default SignUp;
