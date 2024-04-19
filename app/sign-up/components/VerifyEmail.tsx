@@ -53,14 +53,14 @@ export default function VerifyEmail() {
           alignItems: "center",
         }}
       >
-        <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+        <Avatar sx={{ m: 2, bgcolor: "secondary.main" }}>
           <MailOutlineIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography sx={{m: 1}} component="h1" variant="h5">
           Enter the 4-digit code sent to you at: 
           {/* Email */}
         </Typography>
-        <Box id="bigger" component="form" noValidate sx={{ mt: 1, display: 'flex', flexDirection: "column", justifyContent: 'space-between' }}>
+        <Box id="bigger" component="form" noValidate sx={{ m: 1, display: 'flex', flexDirection: "column", justifyContent: 'space-between' }}>
           <Box sx={{ display: "flex", justifyContent: 'space-between' }}>
           {codes.map((code, index) => (
             <TextField

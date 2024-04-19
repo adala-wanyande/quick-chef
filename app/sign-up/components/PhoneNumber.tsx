@@ -40,13 +40,13 @@ const PhoneNumber: React.FC = () => {
           alignItems: "center",
         }}
       >
-        <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+        <Avatar sx={{ m: 2, bgcolor: "secondary.main" }}>
           <PhoneIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography sx={{m: 1}} component="h1" variant="h5">
           Enter your phone number
         </Typography>
-        <Box component="form" noValidate sx={{ mt: 1, width: "100%" }}>
+        <Box component="form" noValidate sx={{ m: 1, width: "100%" }}>
           <PhoneInput
             value={value}
             country={"US"} // Updated to 'country' if supported

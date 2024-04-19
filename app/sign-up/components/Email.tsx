@@ -39,13 +39,13 @@ export default function Email() {
           alignItems: "center",
         }}
       >
-        <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+        <Avatar sx={{ m: 2, bgcolor: "secondary.main" }}>
           <AlternateEmailIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography sx={{m: 1}} component="h1" variant="h5">
           What's your email?
         </Typography>
-        <Box component="form" noValidate sx={{ mt: 1 }}>
+        <Box component="form" noValidate sx={{ m: 1 }}>
           <TextField
             variant="outlined"
             margin="normal"
