@@ -4,7 +4,11 @@ import VerifyEmail from "./components/VerifyEmail";
 import PhoneNumber from "./components/PhoneNumber";
 
 const SignUp = () => {
-  return <PhoneNumber />;
+  return <>
+  <Email />
+  <VerifyEmail />
+  <PhoneNumber />
+  </>;
 };
 
 export default SignUp;
