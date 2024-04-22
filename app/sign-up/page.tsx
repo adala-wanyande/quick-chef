@@ -1,14 +1,14 @@
 import React from "react";
-import Email from "./components/Email";
-import VerifyEmail from "./components/VerifyEmail";
-import PhoneNumber from "./components/PhoneNumber";
-import CreatePassword from "./components/CreatePassword";
-import Names from "./components/Names";
+import Email from "./_components/Email";
+import VerifyEmail from "./_components/VerifyEmail";
+import PhoneNumber from "./_components/PhoneNumber";
+import CreatePassword from "./_components/CreatePassword";
+import Names from "./_components/Names";
 
 const SignUp = () => {
   return (
     <>
-      <PhoneNumber />
+      <CreatePassword />
     </>
   );
 };
