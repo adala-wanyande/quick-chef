@@ -35,7 +35,7 @@ const MobileNavigationBar = ({
         <ButtonComponent
           variant="contained"
           color="secondary"
-          link="/signup"
+          link="/sign-up"
           text="Sign Up"
         />
       );
