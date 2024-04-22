@@ -1,5 +1,5 @@
-import MobileNavigationBar from "@/components/MobileNavigationBar/MobileNavigationBar";
-import NavigationBar from "@/components/NavigationBar/NavigationBar";
+import MobileNavigationBar from "@/components/home/MobileNavigationBar/MobileNavigationBar";
+import NavigationBar from "@/components/home/NavigationBar/NavigationBar";
 import React from "react";
 import Box from "@mui/material/Box";
 
