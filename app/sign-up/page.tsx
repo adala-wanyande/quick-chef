@@ -8,7 +8,7 @@ import Names from "./_components/Names";
 const SignUp = () => {
   return (
     <>
-      <Names />
+      <Email />
     </>
   );
 };
