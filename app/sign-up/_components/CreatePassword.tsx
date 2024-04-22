@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import {
   Avatar,
   Button,
@@ -11,18 +11,32 @@ import {
   Container,
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import { useFormik } from "formik";
+import * as yup from "yup";
 
 const CreatePassword = () => {
-  const [password, setPassword] = useState("");
+  const validationSchema = yup.object({
+    password: yup
+      .string()
+      .required("Password is required")
+      .min(8, "Password must be at least 8 characters long")
+      .matches(/\d/, "Password must contain at least one digit")
+      .matches(/[a-zA-Z]/, "Password must contain at least one letter")
+      .matches(
+        /[^a-zA-Z0-9]/,
+        "Password must contain at least one non-alphanumeric character"
+      ),
+  });
 
-  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
-  };
-
-  const handleSubmit = () => {
-    // Implement password validation and continuation logic here
-    console.log("Create password:", password);
-  };
+  const formik = useFormik({
+    initialValues: {
+      password: "",
+    },
+    validationSchema,
+    onSubmit: (values) => {
+      console.log("Create password:", values.password);
+    },
+  });
 
   return (
     <Container component="main" maxWidth="xs">
@@ -42,10 +56,15 @@ const CreatePassword = () => {
           Create your account password
         </Typography>
         <Typography sx={{ mt: 2, mb: 2 }} color="text.secondary">
-          Your password must be at least 8 characters long, and contain at least
-          one digit and one non-digit character
+          Your password must be at least 8 characters long, contain at least one
+          digit, one letter, and one non-alphanumeric character.
         </Typography>
-        <Box component="form" noValidate sx={{ mt: 1, width: "100%" }}>
+        <Box
+          component="form"
+          noValidate
+          onSubmit={formik.handleSubmit}
+          sx={{ mt: 1, width: "100%" }}
+        >
           <TextField
             variant="outlined"
             margin="normal"
@@ -57,16 +76,17 @@ const CreatePassword = () => {
             name="password"
             autoComplete="new-password"
             autoFocus
-            value={password}
-            onChange={handlePasswordChange}
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            error={formik.touched.password && Boolean(formik.errors.password)}
+            helperText={formik.touched.password && formik.errors.password}
           />
           <Button
-            type="button"
+            type="submit"
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
-            onClick={handleSubmit}
-            disabled={password.length === 0}
+            disabled={!formik.isValid || formik.isSubmitting}
           >
             Create Password
           </Button>
