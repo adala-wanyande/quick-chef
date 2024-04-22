@@ -1,27 +1,50 @@
-"use client"
+"use client";
 
 import React from "react";
-import { Container, Box, CssBaseline, Typography, Button, Avatar } from "@mui/material";
+import {
+  Container,
+  Box,
+  CssBaseline,
+  Typography,
+  Button,
+  Avatar,
+} from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
-import { useFormik } from 'formik';
-import * as yup from 'yup';
+import { useFormik } from "formik";
+import * as yup from "yup";
 import PhoneInput from "react-phone-input-2";
-import 'react-phone-input-2/lib/material.css';
+import "react-phone-input-2/lib/material.css";
 
+// Define the validation schema
 const validationSchema = yup.object({
-  phone: yup.string()
+  phone: yup
+    .string()
     .required("Phone number is required")
     .matches(/^[0-9]+$/, "Only numeric characters are allowed")
-    .min(10, 'Phone number should be of minimum 10 digits length')
-    .max(12, 'Phone number should not exceed 10 digits')
+    .min(10, "Phone number should be of minimum 10 digits length")
+    .max(15, "Phone number should not exceed 15 digits"), // Adjusted max length
 });
 
-const PhoneNumber = () => {
+// Component implementation
+const PhoneNumber: React.FC<PhoneNumberProps> = ({
+  onNext,
+  onBack,
+  onChange,
+}) => {
   const formik = useFormik({
     initialValues: { phone: "" },
     validationSchema,
-    onSubmit: values => { console.log("Phone Number:", values.phone); }
+    onSubmit: (values) => {
+      console.log("Phone Number:", values.phone);
+      onNext(values.phone); // Call onNext with the phone number
+    },
   });
+
+  // Handle changes specifically to propagate to parent components if needed
+  const handlePhoneChange = (value: string) => {
+    formik.setFieldValue("phone", value);
+    onChange(value); // Propagate changes up
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -40,17 +63,22 @@ const PhoneNumber = () => {
         <Typography sx={{ m: 1 }} component="h1" variant="h5">
           Enter your phone number
         </Typography>
-        <Box component="form" onSubmit={formik.handleSubmit} noValidate sx={{ m: 1, width: "100%" }}>
+        <Box
+          component="form"
+          onSubmit={formik.handleSubmit}
+          noValidate
+          sx={{ m: 1, width: "100%" }}
+        >
           <PhoneInput
-            country={"US"}
+            country="US"
             value={formik.values.phone}
-            onChange={value => formik.setFieldValue("phone", value)}
+            onChange={handlePhoneChange}
             inputProps={{
               name: "phone",
               required: true,
-              autoFocus: true
+              autoFocus: true,
             }}
-            inputStyle={{width: "100%"}}
+            inputStyle={{ width: "100%", fontFamily: "Jost" }}
           />
           {formik.touched.phone && formik.errors.phone && (
             <Typography color="error" sx={{ mt: 2 }}>
@@ -64,6 +92,13 @@ const PhoneNumber = () => {
             sx={{ mt: 3, mb: 2, width: "100%" }}
           >
             Continue
+          </Button>
+          <Button
+            variant="outlined"
+            onClick={onBack}
+            sx={{ mt: 1, mb: 2, width: "100%" }}
+          >
+            Back
           </Button>
         </Box>
       </Box>

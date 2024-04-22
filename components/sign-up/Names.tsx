@@ -14,7 +14,15 @@ import PersonIcon from "@mui/icons-material/Person";
 import { useFormik } from "formik";
 import * as yup from "yup";
 
-const Names = () => {
+// Define an interface for the component props
+interface NamesProps {
+  onFinish: (values: { firstName: string; lastName: string }) => void;
+  onBack: () => void;
+  onChange: (field: string, value: any) => void;
+}
+
+// Component implementation with TypeScript
+const Names: React.FC<NamesProps> = ({ onFinish, onBack, onChange }) => {
   const validationSchema = yup.object({
     firstName: yup
       .string()
@@ -45,8 +53,17 @@ const Names = () => {
         "Last Name:",
         values.lastName
       );
+      onFinish(values); // Pass the values to the onFinish callback
     },
+    validateOnChange: true, // Ensure validation runs on change
   });
+
+  // Enhanced change handler to incorporate custom onChange logic
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    onChange(name, value); // Propagate changes up
+    formik.handleChange(event); // Standard Formik change handling
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -85,7 +102,7 @@ const Names = () => {
             autoComplete="given-name"
             autoFocus
             value={formik.values.firstName}
-            onChange={formik.handleChange}
+            onChange={handleChange}
             error={formik.touched.firstName && Boolean(formik.errors.firstName)}
             helperText={formik.touched.firstName && formik.errors.firstName}
           />
@@ -99,7 +116,7 @@ const Names = () => {
             name="lastName"
             autoComplete="family-name"
             value={formik.values.lastName}
-            onChange={formik.handleChange}
+            onChange={handleChange}
             error={formik.touched.lastName && Boolean(formik.errors.lastName)}
             helperText={formik.touched.lastName && formik.errors.lastName}
           />
@@ -111,6 +128,9 @@ const Names = () => {
             disabled={!formik.isValid || formik.isSubmitting}
           >
             Submit
+          </Button>
+          <Button fullWidth variant="outlined" onClick={onBack} sx={{ mt: 1 }}>
+            Back
           </Button>
         </Box>
       </Box>

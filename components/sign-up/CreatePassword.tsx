@@ -14,7 +14,18 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { useFormik } from "formik";
 import * as yup from "yup";
 
-const CreatePassword = () => {
+// TypeScript props definition
+interface CreatePasswordProps {
+  onNext: (password: string) => void;
+  onBack: () => void;
+  onChange: (password: string) => void;
+}
+
+const CreatePassword: React.FC<CreatePasswordProps> = ({
+  onNext,
+  onBack,
+  onChange,
+}) => {
   const validationSchema = yup.object({
     password: yup
       .string()
@@ -35,8 +46,16 @@ const CreatePassword = () => {
     validationSchema,
     onSubmit: (values) => {
       console.log("Create password:", values.password);
+      onNext(values.password);
     },
   });
+
+  // Enhanced change handler
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    onChange(value);
+    formik.handleChange(event); // Update Formik state
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -56,8 +75,7 @@ const CreatePassword = () => {
           Create your account password
         </Typography>
         <Typography sx={{ mt: 2, mb: 2 }} color="text.secondary">
-          Your password must be at least 8 characters long, contain at least one
-          digit, one letter, and one non-alphanumeric character.
+          Your password must meet the criteria described.
         </Typography>
         <Box
           component="form"
@@ -77,7 +95,7 @@ const CreatePassword = () => {
             autoComplete="new-password"
             autoFocus
             value={formik.values.password}
-            onChange={formik.handleChange}
+            onChange={handleChange}
             error={formik.touched.password && Boolean(formik.errors.password)}
             helperText={formik.touched.password && formik.errors.password}
           />
@@ -89,6 +107,9 @@ const CreatePassword = () => {
             disabled={!formik.isValid || formik.isSubmitting}
           >
             Create Password
+          </Button>
+          <Button onClick={onBack} fullWidth variant="text" sx={{ mt: 1 }}>
+            Back
           </Button>
         </Box>
       </Box>

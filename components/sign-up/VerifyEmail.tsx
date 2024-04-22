@@ -10,12 +10,16 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 
-export default function VerifyEmail() {
-  const [codes, setCodes] = React.useState(["", "", "", ""]);
-  const [error, setError] = React.useState(false);
-  const [errorMessage, setErrorMessage] = React.useState("");
+const VerifyEmail: React.FC<VerifyEmailProps> = ({
+  onNext,
+  onChange,
+  onBack,
+}) => {
+  const [codes, setCodes] = React.useState<string[]>(["", "", "", ""]);
+  const [error, setError] = React.useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = React.useState<string>("");
 
-  const inputRefs: React.RefObject<HTMLInputElement>[] = [
+  const inputRefs = [
     React.useRef<HTMLInputElement>(null),
     React.useRef<HTMLInputElement>(null),
     React.useRef<HTMLInputElement>(null),
@@ -29,10 +33,7 @@ export default function VerifyEmail() {
       setCodes(newCodes);
       setError(false); // Clear error when user starts correcting input
       if (event.target.value !== "" && index < 3) {
-        const nextInput = inputRefs[index + 1].current;
-        if (nextInput) {
-          nextInput.focus(); // Automatically move focus to the next input
-        }
+        inputRefs[index + 1].current?.focus(); // Automatically move focus to the next input
       }
     };
 
@@ -40,7 +41,8 @@ export default function VerifyEmail() {
     const fullCode = codes.join("");
     if (fullCode.length === 4 && !codes.some((code) => code.length !== 1)) {
       console.log("Verification code entered:", fullCode);
-      // Implement actual validation logic with server here
+      onChange(fullCode); // assuming onChange should be called here
+      onNext(); // Move to the next step
     } else {
       setError(true);
       setErrorMessage("Please fill in all fields correctly.");
@@ -54,7 +56,7 @@ export default function VerifyEmail() {
     setError(false);
     setErrorMessage("");
     inputRefs[0].current?.focus();
-    // Implement resend code logic
+    // Implement resend code logic here
   };
 
   return (
@@ -75,7 +77,6 @@ export default function VerifyEmail() {
           Enter the 4-digit code sent to you:
         </Typography>
         <Box
-          id="bigger"
           component="form"
           noValidate
           sx={{
@@ -144,4 +145,6 @@ export default function VerifyEmail() {
       </Box>
     </Container>
   );
-}
+};
+
+export default VerifyEmail;
