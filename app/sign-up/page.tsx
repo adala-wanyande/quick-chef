@@ -9,10 +9,6 @@ const SignUp = () => {
   return (
     <>
       <Email />
-      <VerifyEmail />
-      <PhoneNumber />
-      <CreatePassword />
-      <Names />
     </>
   );
 };

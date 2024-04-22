@@ -13,14 +13,21 @@ import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 
 export default function Email() {
   const [email, setEmail] = React.useState("");
+  const [emailError, setEmailError] = React.useState("");
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
+    if (emailError) setEmailError(""); // Clear error message as user is typing
   };
 
   const handleContinue = () => {
-    // Implement email validation and continuation logic
-    console.log("Continue with:", email);
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (emailRegex.test(email)) {
+      console.log("Continue with:", email);
+      // Additional logic for valid email
+    } else {
+      setEmailError("Please enter a valid email address.");
+    }
   };
 
   const handleGoogleSignIn = () => {
@@ -42,7 +49,7 @@ export default function Email() {
         <Avatar sx={{ m: 2, bgcolor: "secondary.main" }}>
           <AlternateEmailIcon />
         </Avatar>
-        <Typography sx={{m: 1}} component="h1" variant="h5">
+        <Typography sx={{ m: 1 }} component="h1" variant="h5">
           What's your email?
         </Typography>
         <Box component="form" noValidate sx={{ m: 1 }}>
@@ -58,7 +65,10 @@ export default function Email() {
             autoFocus
             value={email}
             onChange={handleEmailChange}
+            error={!!emailError}
+            helperText={emailError}
           />
+
           <Button
             type="button"
             fullWidth
