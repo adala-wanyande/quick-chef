@@ -8,7 +8,7 @@ import Names from "./components/Names";
 const SignUp = () => {
   return (
     <>
-      <VerifyEmail />
+      <PhoneNumber />
     </>
   );
 };

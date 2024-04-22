@@ -1,33 +1,27 @@
-"use client";
+"use client"
 
-import React, { useState } from "react";
-import {
-  Container,
-  Box,
-  CssBaseline,
-  Typography,
-  Button,
-  Avatar,
-  TextField,
-} from "@mui/material";
+import React from "react";
+import { Container, Box, CssBaseline, Typography, Button, Avatar } from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
-import PhoneInput from "react-phone-input-material-ui";
-import { isPossiblePhoneNumber } from "libphonenumber-js";
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+import PhoneInput from "react-phone-input-2";
+import 'react-phone-input-2/lib/material.css';
 
-const PhoneNumber: React.FC = () => {
-  const [value, setValue] = useState<string>("");
+const validationSchema = yup.object({
+  phone: yup.string()
+    .required("Phone number is required")
+    .matches(/^[0-9]+$/, "Only numeric characters are allowed")
+    .min(10, 'Phone number should be of minimum 10 digits length')
+    .max(12, 'Phone number should not exceed 10 digits')
+});
 
-  const handlePhoneChange = (phone: string | undefined) => {
-    setValue(phone || "");
-  };
-
-  const handleContinue = () => {
-    if (value && isPossiblePhoneNumber(value)) {
-      console.log("Phone Number:", value); // Proceed with phone number
-    } else {
-      console.log("Invalid Phone Number"); // Handle error
-    }
-  };
+const PhoneNumber = () => {
+  const formik = useFormik({
+    initialValues: { phone: "" },
+    validationSchema,
+    onSubmit: values => { console.log("Phone Number:", values.phone); }
+  });
 
   return (
     <Container component="main" maxWidth="xs">
@@ -43,20 +37,30 @@ const PhoneNumber: React.FC = () => {
         <Avatar sx={{ m: 2, bgcolor: "secondary.main" }}>
           <PhoneIcon />
         </Avatar>
-        <Typography sx={{m: 1}} component="h1" variant="h5">
+        <Typography sx={{ m: 1 }} component="h1" variant="h5">
           Enter your phone number
         </Typography>
-        <Box component="form" noValidate sx={{ m: 1, width: "100%" }}>
+        <Box component="form" onSubmit={formik.handleSubmit} noValidate sx={{ m: 1, width: "100%" }}>
           <PhoneInput
-            value={value}
-            country={"US"} // Updated to 'country' if supported
-            onChange={handlePhoneChange}
-            component={TextField}
+            country={"US"}
+            value={formik.values.phone}
+            onChange={value => formik.setFieldValue("phone", value)}
+            inputProps={{
+              name: "phone",
+              required: true,
+              autoFocus: true
+            }}
+            inputStyle={{width: "100%"}}
           />
+          {formik.touched.phone && formik.errors.phone && (
+            <Typography color="error" sx={{ mt: 2 }}>
+              {formik.errors.phone}
+            </Typography>
+          )}
           <Button
-            onClick={handleContinue}
+            type="submit"
             variant="contained"
-            disabled={!value || !isPossiblePhoneNumber(value)}
+            disabled={formik.isSubmitting || !formik.isValid}
             sx={{ mt: 3, mb: 2, width: "100%" }}
           >
             Continue
