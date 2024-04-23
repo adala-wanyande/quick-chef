@@ -58,3 +58,11 @@ interface NamesProps {
   onBack: () => void;
   onChange: (field: string, value: any) => void;
 }
+
+interface UserData {
+  email: string;
+  phoneNumber: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+}
